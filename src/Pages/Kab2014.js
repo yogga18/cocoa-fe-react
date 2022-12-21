@@ -62,7 +62,7 @@ const Kab2014 = () => {
           {
             data: (row) => row,
             name: 'Kabupaten / Kota',
-            width: '15%',
+            width: '10%',
             formatter: (cell) =>
               _(
                 <>
@@ -73,7 +73,7 @@ const Kab2014 = () => {
           {
             data: (row) => row,
             name: 'Luas Areal',
-            width: '15%',
+            width: '10%',
             formatter: (cell) =>
               _(
                 <>
@@ -88,7 +88,7 @@ const Kab2014 = () => {
           {
             data: (row) => row,
             name: 'Produktivitas',
-            width: '15%',
+            width: '10%',
             formatter: (cell) =>
               _(
                 <>
@@ -103,7 +103,7 @@ const Kab2014 = () => {
           {
             data: (row) => row,
             name: 'Produksi',
-            width: '15%',
+            width: '10%',
             formatter: (cell) =>
               _(
                 <>
@@ -118,7 +118,7 @@ const Kab2014 = () => {
           {
             data: (row) => row,
             name: 'Jumlah Petani',
-            width: '15%',
+            width: '10%',
             formatter: (cell) =>
               _(
                 <>
@@ -133,7 +133,7 @@ const Kab2014 = () => {
           {
             data: (row) => row,
             name: 'TBM',
-            width: '15%',
+            width: '10%',
             formatter: (cell) =>
               _(
                 <>
@@ -144,7 +144,7 @@ const Kab2014 = () => {
           {
             data: (row) => row,
             name: 'TM',
-            width: '15%',
+            width: '10%',
             formatter: (cell) =>
               _(
                 <>
@@ -155,11 +155,24 @@ const Kab2014 = () => {
           {
             data: (row) => row,
             name: 'TR',
-            width: '15%',
+            width: '10%',
             formatter: (cell) =>
               _(
                 <>
                   <>{cell.TR === '' ? <p>-</p> : <p>{cell.TR}</p>}</>
+                </>
+              ),
+          },
+          {
+            data: (row) => row,
+            name: 'Provinsi',
+            width: '10%',
+            formatter: (cell) =>
+              _(
+                <>
+                  <>
+                    {cell.Provinsi === '' ? <p>-</p> : <p>{cell.Provinsi}</p>}
+                  </>
                 </>
               ),
           },

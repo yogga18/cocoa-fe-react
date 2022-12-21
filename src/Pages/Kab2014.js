@@ -1,14 +1,13 @@
-// import { Grid } from 'gridjs-react';
+import { Grid, _ } from 'gridjs-react';
 import React, { Fragment } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Table } from 'reactstrap';
 import kab_2014 from '../Data.js';
 
 // Module not found: Error: Can't resolve 'gridjs-react' in 'C:\Users\user\Documents\GitHub\react-gridjs\src\Pages' how can i fix this error ? i already install gridjs-react but still error like this ?
 
 const Kab2014 = () => {
-  // const [jumlahBaris, setJumlahBaris] = useState(5);
+  const [jumlahBaris, setJumlahBaris] = useState(5);
   const [tempData, setTempData] = useState([]);
 
   const filterData = () => {
@@ -36,40 +35,7 @@ const Kab2014 = () => {
     <Fragment>
       <p>Kab2014</p>
 
-      <Table responsive hover>
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Kabupaten / Kota</th>
-            <th>Luas Areal 2014</th>
-            <th>Produkti</th>
-            <th>Produksi</th>
-            <th>Jumlah Petani</th>
-            <th>TBM</th>
-            <th>TM</th>
-            <th>TR</th>
-            <th>Provinsi</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tempData.map((item, i) => (
-            <tr key={i}>
-              <th scope='row'>{i + 1}</th>
-              <td>{item.Kabupaten_Kota}</td>
-              <td>{item.Luas_Areal_2014}</td>
-              <td>{item.Produktiv_2014}</td>
-              <td>{item.Produksi_2014}</td>
-              <td>{item.Jumlah_Petani}</td>
-              <td>{item.TBM}</td>
-              <td>{item.TM}</td>
-              <td>{item.TR}</td>
-              <td>{item.Provinsi}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-
-      {/* <select
+      <select
         className='form-select form-select-md'
         value={jumlahBaris}
         onChange={(e) => setJumlahBaris(e.target.value)}
@@ -79,11 +45,11 @@ const Kab2014 = () => {
         <option value={50}>50</option>
         <option value={100}>100</option>
         <option value={9999999}>semua</option>
-      </select> */}
+      </select>
 
-      {/* <Grid
+      <Grid
         data={() =>
-          deleteDot.map((item, i) => ({
+          tempData.map((item, i) => ({
             ...item,
             number: i + 1,
           }))
@@ -96,11 +62,104 @@ const Kab2014 = () => {
           {
             data: (row) => row,
             name: 'Kabupaten / Kota',
-            width: '30%',
+            width: '15%',
             formatter: (cell) =>
               _(
                 <>
                   <p>{cell.Kabupaten_Kota}</p>
+                </>
+              ),
+          },
+          {
+            data: (row) => row,
+            name: 'Luas Areal',
+            width: '15%',
+            formatter: (cell) =>
+              _(
+                <>
+                  {cell.Luas_Areal_2014 === '' ? (
+                    <p>-</p>
+                  ) : (
+                    <p>{cell.Luas_Areal_2014}</p>
+                  )}
+                </>
+              ),
+          },
+          {
+            data: (row) => row,
+            name: 'Produktivitas',
+            width: '15%',
+            formatter: (cell) =>
+              _(
+                <>
+                  {cell.Produktiv_2014 === '' ? (
+                    <p>-</p>
+                  ) : (
+                    <p>{cell.Produktiv_2014}</p>
+                  )}
+                </>
+              ),
+          },
+          {
+            data: (row) => row,
+            name: 'Produksi',
+            width: '15%',
+            formatter: (cell) =>
+              _(
+                <>
+                  {cell.Produksi_2014 === '' ? (
+                    <p>-</p>
+                  ) : (
+                    <p>{cell.Produksi_2014}</p>
+                  )}
+                </>
+              ),
+          },
+          {
+            data: (row) => row,
+            name: 'Jumlah Petani',
+            width: '15%',
+            formatter: (cell) =>
+              _(
+                <>
+                  {cell.Jumlah_Petani === '' ? (
+                    <p>-</p>
+                  ) : (
+                    <p>{cell.Jumlah_Petani}</p>
+                  )}
+                </>
+              ),
+          },
+          {
+            data: (row) => row,
+            name: 'TBM',
+            width: '15%',
+            formatter: (cell) =>
+              _(
+                <>
+                  <>{cell.TBM === '' ? <p>-</p> : <p>{cell.TBM}</p>}</>
+                </>
+              ),
+          },
+          {
+            data: (row) => row,
+            name: 'TM',
+            width: '15%',
+            formatter: (cell) =>
+              _(
+                <>
+                  <>{cell.TM === '' ? <p>-</p> : <p>{cell.TM}</p>}</>
+                </>
+              ),
+          },
+          {
+            data: (row) => row,
+            name: 'TR',
+            width: '15%',
+            formatter: (cell) =>
+              _(
+                <>
+                  <>{cell.TR === '' ? <p>-</p> : <p>{cell.TR}</p>}</>
                 </>
               ),
           },
@@ -119,7 +178,7 @@ const Kab2014 = () => {
           limit: jumlahBaris || 10,
           resetPageOnUpdate: true,
         }}
-      /> */}
+      />
     </Fragment>
   );
 };

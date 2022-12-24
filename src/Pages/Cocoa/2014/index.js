@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import Kab2014 from './Kab2014';
 import map_2014 from '../../../assets/gif/map_2014.png';
 import Story14 from './Story14';
+import Prov2014 from './Prov2014';
 
 const index = () => {
   return (
@@ -23,6 +24,7 @@ const index = () => {
         </a>
       </div>
 
+      <Prov2014 />
       <Kab2014 />
       <Story14 />
     </Fragment>

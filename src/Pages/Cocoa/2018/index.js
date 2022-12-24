@@ -1,5 +1,6 @@
 import React from 'react';
 import Kab2018 from './Kab2018';
+import Prov2018 from './Prov2018';
 import Story18 from './Story18';
 
 const index = () => {
@@ -7,6 +8,8 @@ const index = () => {
     <div>
       <h1>Cococa 2018</h1>
       <h1>Map on Top</h1>
+
+      <Prov2018 />
       <Kab2018 />
       <Story18 />
     </div>

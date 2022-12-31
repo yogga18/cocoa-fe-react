@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container } from 'reactstrap';
+import { MetaTags } from 'react-meta-tags';
 
 const index = () => {
   return (
     <div>
+      <MetaTags>Cocoa - CCI</MetaTags>
       <p className='text-center'>
         <b>Cocoa commodity in Indonesia from 2014 to 2020</b>
       </p>

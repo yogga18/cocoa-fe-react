@@ -1,5 +1,4 @@
-import './App.css';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // Init componenet
 import LandingPage from './Pages/Landingpage/index.js';
@@ -11,26 +10,17 @@ import Cocoa17 from './Pages/Cocoa/2017/index.js';
 import Cocoa18 from './Pages/Cocoa/2018/index.js';
 import Cocoa19 from './Pages/Cocoa/2019/index.js';
 import Cocoa20 from './Pages/Cocoa/2020/index.js';
+import NotFound from './Pages/NotFound/index';
+import './App.scss';
+import Header from './Components/Header';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className='App'>
-        <nav className='d-flex justify-content-end align-baseline p-3'>
-          <ul>
-            <li>
-              <Link to='/'>Home</Link>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <Link to='/cocoa'>Cocoa</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <Header />
 
       <Routes>
+        <Route path='*' element={<NotFound />} />
         <Route path='/' element={<LandingPage />} />
         <Route path='/cocoa' element={<Cocoa />} />
         <Route path='/cocoa-2014' element={<Cocoa14 />} />

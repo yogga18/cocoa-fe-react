@@ -2,7 +2,7 @@ import React from 'react';
 import Kab2017 from './Kab2017';
 import Prov2017 from './Prov2017';
 import Story17 from './Story17';
-import map_2017 from '../../../assets/img/2017_map.png';
+import map_2017 from '../../../assets/img/2015_map.png';
 
 const index = () => {
   return (

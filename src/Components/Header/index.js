@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Nav,
   Navbar,
@@ -8,27 +9,28 @@ import {
   NavLink,
   Collapse,
 } from 'reactstrap';
+import './Header.scss';
 
-const Header = () => {
+const Header = ({ header }) => {
   const [collapsed, setCollapsed] = useState(true);
 
   const toggleNavbar = () => setCollapsed(!collapsed);
   return (
     <Fragment>
-      <Navbar color='faded' light className='mx-3'>
+      <Navbar color='faded' light className={`navbar-wrapper ${header}`}>
         <NavbarBrand href='/' className='mr-auto'>
-          CCI
+          <b className='text-white'>CCi</b>
         </NavbarBrand>
         <NavbarToggler onClick={toggleNavbar} className='mr-2' />
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
-            <NavItem className='px-2'>
-              <NavLink href='/' className='text-end'>
+            <NavItem className='NavItem'>
+              <NavLink href='/' className='text-center text-white'>
                 <b>Home</b>
               </NavLink>
             </NavItem>
-            <NavItem className='px-2'>
-              <NavLink href='/cocoa' className='text-end'>
+            <NavItem className='NavItem'>
+              <NavLink href='/cocoa' className='text-center text-white'>
                 <b>Cocoa</b>
               </NavLink>
             </NavItem>
@@ -37,6 +39,10 @@ const Header = () => {
       </Navbar>
     </Fragment>
   );
+};
+
+Header.propTypes = {
+  header: PropTypes.string,
 };
 
 export default Header;

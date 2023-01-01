@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react';
 import { Button, Col, Container, Row } from 'reactstrap';
+import './hero.scss';
+
 const index = () => {
   return (
     <Fragment>
-      {/* Hero */}
-      <Container fluid>
-        <Row>
+      <Container fluid className='wave'>
+        <Row className='hero-content-wrapper'>
           <Col md='12'>
             <div className='hero'>
               <div className='hero__content'>
                 <h1 className='hero__content--title text-center'>
-                  CCI <br />{' '}
                   <span className='hero__content--title--span'>
                     Cocoa Comodity in Indonesia
                   </span>

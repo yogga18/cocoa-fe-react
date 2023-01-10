@@ -1,11 +1,15 @@
 import React, { Fragment } from 'react';
-import { Col, Container, Row } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import './About.scss';
 
 const index = () => {
   return (
     <Fragment>
-      <div className='about-wrapper bg-danger'>
+      <Row className='m-2'>
+        <Col md='6'>Side A</Col>
+        <Col md='6'>Side B</Col>
+      </Row>
+      {/* <div className='about-wrapper bg-danger'>
         <Container fluid>
           <h1 className='text-center'>About</h1>
           <Row>
@@ -17,7 +21,7 @@ const index = () => {
             </Col>
           </Row>
         </Container>
-      </div>
+      </div> */}
     </Fragment>
   );
 };

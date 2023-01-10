@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import 'react-vertical-timeline-component/style.min.css';
-import 'boxicons';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

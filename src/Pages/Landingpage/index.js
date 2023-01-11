@@ -4,6 +4,7 @@ import Footer from '../../Components/Footer';
 import Hero from '../../Components/Hero';
 import About from '../../Components/About';
 import Faq from '../../Components/Faq/Faq.js';
+import ScrollButton from '../../Components/Button/ScrollButton';
 
 const index = () => {
   return (
@@ -18,6 +19,7 @@ const index = () => {
       <About />
       <Faq />
       <Footer />
+      <ScrollButton />
     </div>
   );
 };

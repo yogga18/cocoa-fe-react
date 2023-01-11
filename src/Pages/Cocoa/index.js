@@ -8,7 +8,7 @@ const index = () => {
   return (
     <Fragment>
       <Container fluid className='mt-3'>
-        <p className='text-center'>wooooooooooooooooo</p>
+        <h1 className='text-center'>Komoditas Kakao dari tahun ke tahun</h1>
       </Container>
       <ReactVertical />
       <Footer />

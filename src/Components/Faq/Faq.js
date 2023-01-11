@@ -22,10 +22,13 @@ const Faq = () => {
 
   return (
     <Fragment>
-      <div className='faq-wrapper'>
+      <div className='faq-wrapper mt-5'>
         <Container fluid>
-          <h1 className='text-center'>FAQ</h1>
           <Row>
+            <Col md='12' className='mb-5'>
+              <h1 className='text-center mb-1'>FAQ</h1>
+              <hr className='line text-center'></hr>
+            </Col>
             <Col md='12' className='my-2'>
               <Accordion open={open} toggle={toggle}>
                 <AccordionItem>

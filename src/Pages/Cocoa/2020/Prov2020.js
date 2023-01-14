@@ -1,31 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { Card, CardBody, Col, Container, Row } from 'reactstrap';
-import kab_2015 from '../../../Data/Kabupaten/Data15';
+import React, { Fragment, useState } from 'react';
+import { Col, Container, Row, Card, CardBody } from 'reactstrap';
+import Prov_2020 from '../../../Data/Provinsi/Prov20';
 import { Grid, _ } from 'gridjs-react';
 
-const Kab2015 = () => {
+const Prov2020 = () => {
   const [jumlahBaris, setJumlahBaris] = useState(10);
-  const [tempData, setTempData] = useState([]);
-
-  const filterData = () => {
-    const deleteDot = kab_2015.map((item) => {
-      return {
-        ...item,
-        Luas_Areal_2015: item.Luas_Areal_2015.replace('.', ''),
-        Produksi_2015: item.Produksi_2015.replace('.', ''),
-        TBM: item.TBM.replace('.', ''),
-        TM: item.TM.replace('.', ''),
-        TR: item.TR.replace('.', ''),
-      };
-    });
-
-    setTempData(deleteDot);
-  };
-
-  useEffect(() => {
-    filterData();
-  }, []);
-
   return (
     <Fragment>
       <Container fluid className='my-5'>
@@ -37,7 +16,7 @@ const Kab2015 = () => {
                   <Col md='6'>
                     <h5>
                       <b>
-                        Tabel Komoditas Kakao 2015 by <b>Kabupaten</b> di
+                        Tabel Komoditas Kakao 2020 by <b>Provinsi</b> di
                         Indonesia
                       </b>
                     </h5>
@@ -59,7 +38,7 @@ const Kab2015 = () => {
                 <hr></hr>
                 <Grid
                   data={() =>
-                    tempData.map((item, i) => ({
+                    Prov_2020.map((item, i) => ({
                       ...item,
                       number: i + 1,
                     }))
@@ -72,26 +51,15 @@ const Kab2015 = () => {
                     },
                     {
                       data: (row) => row,
-                      name: 'Kabupaten / Kota',
-                      width: '20%',
-                      formatter: (cell) =>
-                        _(
-                          <>
-                            <p>{cell.Kabupaten_Kota}</p>
-                          </>
-                        ),
-                    },
-                    {
-                      data: (row) => row,
                       name: 'Luas Areal',
                       width: '10%',
                       formatter: (cell) =>
                         _(
                           <>
-                            {cell.Luas_Areal_2015 === '' ? (
+                            {cell.Luas_Areal === '' ? (
                               <p>-</p>
                             ) : (
-                              <p>{cell.Luas_Areal_2015}</p>
+                              <p>{cell.Luas_Areal}</p>
                             )}
                           </>
                         ),
@@ -103,10 +71,10 @@ const Kab2015 = () => {
                       formatter: (cell) =>
                         _(
                           <>
-                            {cell.Produktiv_2015 === '' ? (
+                            {cell.Produktiv === '' ? (
                               <p>-</p>
                             ) : (
-                              <p>{cell.Produktiv_2015}</p>
+                              <p>{cell.Produktiv}</p>
                             )}
                           </>
                         ),
@@ -118,17 +86,17 @@ const Kab2015 = () => {
                       formatter: (cell) =>
                         _(
                           <>
-                            {cell.Produksi_2015 === '' ? (
+                            {cell.Produksi === '' ? (
                               <p>-</p>
                             ) : (
-                              <p>{cell.Produksi_2015}</p>
+                              <p>{cell.Produksi}</p>
                             )}
                           </>
                         ),
                     },
                     {
                       data: (row) => row,
-                      name: 'Jumlah Petani',
+                      name: 'Petani',
                       width: '10%',
                       formatter: (cell) =>
                         _(
@@ -147,11 +115,7 @@ const Kab2015 = () => {
                       width: '10%',
                       formatter: (cell) =>
                         _(
-                          <>
-                            <>
-                              {cell.TBM === '' ? <p>-</p> : <p>{cell.TBM}</p>}
-                            </>
-                          </>
+                          <>{cell.TBM === '' ? <p>-</p> : <p>{cell.TBM}</p>}</>
                         ),
                     },
                     {
@@ -159,48 +123,57 @@ const Kab2015 = () => {
                       name: 'TM',
                       width: '10%',
                       formatter: (cell) =>
-                        _(
-                          <>
-                            <>{cell.TM === '' ? <p>-</p> : <p>{cell.TM}</p>}</>
-                          </>
-                        ),
+                        _(<>{cell.TM === '' ? <p>-</p> : <p>{cell.TM}</p>}</>),
                     },
                     {
                       data: (row) => row,
                       name: 'TR',
                       width: '10%',
                       formatter: (cell) =>
+                        _(<>{cell.TR === '' ? <p>-</p> : <p>{cell.TR}</p>}</>),
+                    },
+                    {
+                      data: (row) => row,
+                      name: 'Provinsi',
+                      width: '15%',
+                      formatter: (cell) =>
                         _(
                           <>
-                            <>{cell.TR === '' ? <p>-</p> : <p>{cell.TR}</p>}</>
+                            {cell.Provinsi === '' ? (
+                              <p>-</p>
+                            ) : (
+                              <p>{cell.Provinsi}</p>
+                            )}
                           </>
                         ),
                     },
                     {
                       data: (row) => row,
-                      name: 'Provinsi',
+                      name: 'Cluster',
                       width: '10%',
                       formatter: (cell) =>
                         _(
                           <>
-                            <>
-                              {cell.Provinsi === '' ? (
-                                <p>-</p>
-                              ) : (
-                                <p>{cell.Provinsi}</p>
-                              )}
-                            </>
+                            {cell.cluster === '1' ? (
+                              <span className='badge bg-success font-size-12'>
+                                Potensi Baik
+                              </span>
+                            ) : (
+                              <span className='badge bg-warning font-size-12'>
+                                Potensi Kurang Baik
+                              </span>
+                            )}
                           </>
                         ),
                     },
                   ]}
                   search={{
                     selector: (cell, rowIndex, cellIndex) =>
-                      cellIndex === 1 ? cell.Provinsi : cell.Kabupaten_Kota,
+                      cellIndex === 1 ? cell.Provinsi : cell,
                   }}
                   language={{
                     search: {
-                      placeholder: 'Search By Provinsi or Kabupaten / Kota...',
+                      placeholder: 'Search By Provinsi...',
                     },
                   }}
                   pagination={{
@@ -218,4 +191,4 @@ const Kab2015 = () => {
   );
 };
 
-export default Kab2015;
+export default Prov2020;

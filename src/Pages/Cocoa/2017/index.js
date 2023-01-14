@@ -3,10 +3,13 @@ import Kab2017 from './Kab2017';
 import Prov2017 from './Prov2017';
 import Story17 from './Story17';
 import map_2017 from '../../../assets/img/2015_map.png';
+import { Fragment } from 'react';
+import GoBack from '../../../Components/Button/GoBack';
 
 const index = () => {
   return (
-    <div>
+    <Fragment>
+      <GoBack />
       <h1 className='text-center'>
         Keadaan Komoditas Kakao di Indonesia pada tahun 2017
       </h1>
@@ -27,7 +30,7 @@ const index = () => {
       <Prov2017 />
       <Kab2017 />
       <Story17 />
-    </div>
+    </Fragment>
   );
 };
 

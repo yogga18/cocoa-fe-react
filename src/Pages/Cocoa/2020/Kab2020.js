@@ -1,18 +1,18 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Card, CardBody, Col, Container, Row } from 'reactstrap';
-import kab_2015 from '../../../Data/Kabupaten/Data15';
+import kab_2020 from '../../../Data/Kabupaten/Data20';
 import { Grid, _ } from 'gridjs-react';
 
-const Kab2015 = () => {
+const Kab2020 = () => {
   const [jumlahBaris, setJumlahBaris] = useState(10);
   const [tempData, setTempData] = useState([]);
 
   const filterData = () => {
-    const deleteDot = kab_2015.map((item) => {
+    const deleteDot = kab_2020.map((item) => {
       return {
         ...item,
-        Luas_Areal_2015: item.Luas_Areal_2015.replace('.', ''),
-        Produksi_2015: item.Produksi_2015.replace('.', ''),
+        Luas_Areal_2020: item.Luas_Areal_2020.replace('.', ''),
+        Produksi_2020: item.Produksi_2020.replace('.', ''),
         TBM: item.TBM.replace('.', ''),
         TM: item.TM.replace('.', ''),
         TR: item.TR.replace('.', ''),
@@ -37,7 +37,7 @@ const Kab2015 = () => {
                   <Col md='6'>
                     <h5>
                       <b>
-                        Tabel Komoditas Kakao 2015 by <b>Kabupaten</b> di
+                        Tabel Komoditas Kakao 2020 by <b>Kabupaten</b> di
                         Indonesia
                       </b>
                     </h5>
@@ -88,10 +88,10 @@ const Kab2015 = () => {
                       formatter: (cell) =>
                         _(
                           <>
-                            {cell.Luas_Areal_2015 === '' ? (
+                            {cell.Luas_Areal_2020 === '' ? (
                               <p>-</p>
                             ) : (
-                              <p>{cell.Luas_Areal_2015}</p>
+                              <p>{cell.Luas_Areal_2020}</p>
                             )}
                           </>
                         ),
@@ -103,10 +103,10 @@ const Kab2015 = () => {
                       formatter: (cell) =>
                         _(
                           <>
-                            {cell.Produktiv_2015 === '' ? (
+                            {cell.Produktiv_2020 === '' ? (
                               <p>-</p>
                             ) : (
-                              <p>{cell.Produktiv_2015}</p>
+                              <p>{cell.Produktiv_2020}</p>
                             )}
                           </>
                         ),
@@ -118,10 +118,10 @@ const Kab2015 = () => {
                       formatter: (cell) =>
                         _(
                           <>
-                            {cell.Produksi_2015 === '' ? (
+                            {cell.Produksi_2020 === '' ? (
                               <p>-</p>
                             ) : (
-                              <p>{cell.Produksi_2015}</p>
+                              <p>{cell.Produksi_2020}</p>
                             )}
                           </>
                         ),
@@ -218,4 +218,4 @@ const Kab2015 = () => {
   );
 };
 
-export default Kab2015;
+export default Kab2020;

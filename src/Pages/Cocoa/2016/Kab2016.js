@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Col, Container, Row } from 'reactstrap';
+import { Card, CardBody, Col, Container, Row } from 'reactstrap';
 import kab_2016 from '../../../Data/Kabupaten/Data16';
 import { Grid, _ } from 'gridjs-react';
 
@@ -29,179 +29,189 @@ const Kab2016 = () => {
   return (
     <Fragment>
       <Container fluid className='my-5'>
-        <Row className='mx-3'>
-          <Col md='6'>
-            Tabel Penghasil Komoditas Kakao 2016 by Kabupaten di Indonesia
-          </Col>
-          <Col md='6'>
-            <select
-              className='form-select form-select-md'
-              value={jumlahBaris}
-              onChange={(e) => setJumlahBaris(e.target.value)}
-            >
-              <option value={10}>Jumlah Baris</option>
-              <option value={25}>25</option>
-              <option value={50}>50</option>
-              <option value={100}>100</option>
-              <option value={9999999}>semua</option>
-            </select>
-          </Col>
-        </Row>
-
         <Row className='pt-5'>
-          <Col md='1'></Col>
-          <Col md='10'>
-            <Grid
-              data={() =>
-                tempData.map((item, i) => ({
-                  ...item,
-                  number: i + 1,
-                }))
-              }
-              columns={[
-                {
-                  id: 'number',
-                  name: 'No',
-                },
-                {
-                  data: (row) => row,
-                  name: 'Kabupaten / Kota',
-                  width: '15%',
-                  formatter: (cell) =>
-                    _(
-                      <>
-                        <p>{cell.Kabupaten_Kota}</p>
-                      </>
-                    ),
-                },
-                {
-                  data: (row) => row,
-                  name: 'Luas Areal',
-                  width: '10%',
-                  formatter: (cell) =>
-                    _(
-                      <>
-                        {cell.Luas_Areal_2016 === '' ? (
-                          <p>-</p>
-                        ) : (
-                          <p>{cell.Luas_Areal_2016}</p>
-                        )}
-                      </>
-                    ),
-                },
-                {
-                  data: (row) => row,
-                  name: 'Produktivitas',
-                  width: '10%',
-                  formatter: (cell) =>
-                    _(
-                      <>
-                        {cell.Produktiv_2016 === '' ? (
-                          <p>-</p>
-                        ) : (
-                          <p>{cell.Produktiv_2016}</p>
-                        )}
-                      </>
-                    ),
-                },
-                {
-                  data: (row) => row,
-                  name: 'Produksi',
-                  width: '10%',
-                  formatter: (cell) =>
-                    _(
-                      <>
-                        {cell.Produksi_2016 === '' ? (
-                          <p>-</p>
-                        ) : (
-                          <p>{cell.Produksi_2016}</p>
-                        )}
-                      </>
-                    ),
-                },
-                {
-                  data: (row) => row,
-                  name: 'Jumlah Petani',
-                  width: '10%',
-                  formatter: (cell) =>
-                    _(
-                      <>
-                        {cell.Jumlah_Petani === '' ? (
-                          <p>-</p>
-                        ) : (
-                          <p>{cell.Jumlah_Petani}</p>
-                        )}
-                      </>
-                    ),
-                },
-                {
-                  data: (row) => row,
-                  name: 'TBM',
-                  width: '10%',
-                  formatter: (cell) =>
-                    _(
-                      <>
-                        <>{cell.TBM === '' ? <p>-</p> : <p>{cell.TBM}</p>}</>
-                      </>
-                    ),
-                },
-                {
-                  data: (row) => row,
-                  name: 'TM',
-                  width: '10%',
-                  formatter: (cell) =>
-                    _(
-                      <>
-                        <>{cell.TM === '' ? <p>-</p> : <p>{cell.TM}</p>}</>
-                      </>
-                    ),
-                },
-                {
-                  data: (row) => row,
-                  name: 'TR',
-                  width: '10%',
-                  formatter: (cell) =>
-                    _(
-                      <>
-                        <>{cell.TR === '' ? <p>-</p> : <p>{cell.TR}</p>}</>
-                      </>
-                    ),
-                },
-                {
-                  data: (row) => row,
-                  name: 'Provinsi',
-                  width: '10%',
-                  formatter: (cell) =>
-                    _(
-                      <>
-                        <>
-                          {cell.Provinsi === '' ? (
-                            <p>-</p>
-                          ) : (
-                            <p>{cell.Provinsi}</p>
-                          )}
-                        </>
-                      </>
-                    ),
-                },
-              ]}
-              search={{
-                selector: (cell, rowIndex, cellIndex) =>
-                  cellIndex === 1 ? cell.Provinsi : cell,
-              }}
-              language={{
-                search: {
-                  placeholder: 'Search By Title...',
-                },
-              }}
-              pagination={{
-                enabled: true,
-                limit: jumlahBaris || 10,
-                resetPageOnUpdate: true,
-              }}
-            />
-          </Col>
-          <Col md='1'></Col>
+          <Container fluid>
+            <Card className='bg-secondary text-light'>
+              <CardBody>
+                <Row>
+                  <Col md='6'>
+                    <h5>
+                      <b>
+                        Tabel Komoditas Kakao 2016 by <b>Kabupaten</b> di
+                        Indonesia
+                      </b>
+                    </h5>
+                  </Col>
+                  <Col md='6'>
+                    <select
+                      className='form-select form-select-md'
+                      value={jumlahBaris}
+                      onChange={(e) => setJumlahBaris(e.target.value)}
+                    >
+                      <option value={10}>Jumlah Baris</option>
+                      <option value={25}>25</option>
+                      <option value={50}>50</option>
+                      <option value={100}>100</option>
+                      <option value={9999999}>semua</option>
+                    </select>
+                  </Col>
+                </Row>
+                <hr></hr>
+                <Grid
+                  data={() =>
+                    tempData.map((item, i) => ({
+                      ...item,
+                      number: i + 1,
+                    }))
+                  }
+                  columns={[
+                    {
+                      id: 'number',
+                      name: 'No',
+                      width: '5%',
+                    },
+                    {
+                      data: (row) => row,
+                      name: 'Kabupaten / Kota',
+                      width: '20%',
+                      formatter: (cell) =>
+                        _(
+                          <>
+                            <p>{cell.Kabupaten_Kota}</p>
+                          </>
+                        ),
+                    },
+                    {
+                      data: (row) => row,
+                      name: 'Luas Areal',
+                      width: '10%',
+                      formatter: (cell) =>
+                        _(
+                          <>
+                            {cell.Luas_Areal_2016 === '' ? (
+                              <p>-</p>
+                            ) : (
+                              <p>{cell.Luas_Areal_2016}</p>
+                            )}
+                          </>
+                        ),
+                    },
+                    {
+                      data: (row) => row,
+                      name: 'Produktivitas',
+                      width: '10%',
+                      formatter: (cell) =>
+                        _(
+                          <>
+                            {cell.Produktiv_2016 === '' ? (
+                              <p>-</p>
+                            ) : (
+                              <p>{cell.Produktiv_2016}</p>
+                            )}
+                          </>
+                        ),
+                    },
+                    {
+                      data: (row) => row,
+                      name: 'Produksi',
+                      width: '10%',
+                      formatter: (cell) =>
+                        _(
+                          <>
+                            {cell.Produksi_2016 === '' ? (
+                              <p>-</p>
+                            ) : (
+                              <p>{cell.Produksi_2016}</p>
+                            )}
+                          </>
+                        ),
+                    },
+                    {
+                      data: (row) => row,
+                      name: 'Jumlah Petani',
+                      width: '10%',
+                      formatter: (cell) =>
+                        _(
+                          <>
+                            {cell.Jumlah_Petani === '' ? (
+                              <p>-</p>
+                            ) : (
+                              <p>{cell.Jumlah_Petani}</p>
+                            )}
+                          </>
+                        ),
+                    },
+                    {
+                      data: (row) => row,
+                      name: 'TBM',
+                      width: '10%',
+                      formatter: (cell) =>
+                        _(
+                          <>
+                            <>
+                              {cell.TBM === '' ? <p>-</p> : <p>{cell.TBM}</p>}
+                            </>
+                          </>
+                        ),
+                    },
+                    {
+                      data: (row) => row,
+                      name: 'TM',
+                      width: '10%',
+                      formatter: (cell) =>
+                        _(
+                          <>
+                            <>{cell.TM === '' ? <p>-</p> : <p>{cell.TM}</p>}</>
+                          </>
+                        ),
+                    },
+                    {
+                      data: (row) => row,
+                      name: 'TR',
+                      width: '10%',
+                      formatter: (cell) =>
+                        _(
+                          <>
+                            <>{cell.TR === '' ? <p>-</p> : <p>{cell.TR}</p>}</>
+                          </>
+                        ),
+                    },
+                    {
+                      data: (row) => row,
+                      name: 'Provinsi',
+                      width: '10%',
+                      formatter: (cell) =>
+                        _(
+                          <>
+                            <>
+                              {cell.Provinsi === '' ? (
+                                <p>-</p>
+                              ) : (
+                                <p>{cell.Provinsi}</p>
+                              )}
+                            </>
+                          </>
+                        ),
+                    },
+                  ]}
+                  search={{
+                    selector: (cell, rowIndex, cellIndex) =>
+                      cellIndex === 1 ? cell.Provinsi : cell.Kabupaten_Kota,
+                  }}
+                  language={{
+                    search: {
+                      placeholder: 'Search By Provinsi or Kabupaten / Kota...',
+                    },
+                  }}
+                  pagination={{
+                    enabled: true,
+                    limit: jumlahBaris || 10,
+                    resetPageOnUpdate: true,
+                  }}
+                />
+              </CardBody>
+            </Card>
+          </Container>
         </Row>
       </Container>
     </Fragment>

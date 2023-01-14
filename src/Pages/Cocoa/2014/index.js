@@ -3,10 +3,12 @@ import Kab2014 from './Kab2014';
 import map_2014 from '../../../assets/gif/map_2014.png';
 import Story14 from './Story14';
 import Prov2014 from './Prov2014';
+import GoBack from '../../../Components/Button/GoBack';
 
 const index = () => {
   return (
     <Fragment>
+      <GoBack />
       <h1 className='text-center'>
         Keadaan Komoditas Kakao di Indonesia pada tahun 2014
       </h1>

@@ -1,29 +1,11 @@
 import React, { Fragment } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import elbow_14 from '../../../assets/img/2014/Elbow_2014.png';
-import Provinsi_2014 from '../../../Data/Provinsi/Prov14';
 
 const Story14 = () => {
-  console.log(Provinsi_2014);
-
   return (
     <Fragment>
       <Container fluid className='my-5'>
-        {/* <Row>
-          <Col md='12'>
-            <h5 className='text-center'>
-              Table Hasil Clustering Menggunakan K - Means
-            </h5>
-            <div className='d-flex justify-content-center align-baseline'>
-              <img
-                src={df_2014}
-                width={1200}
-                height={600}
-                alt='Hasil Clustering'
-              />
-            </div>
-          </Col>
-        </Row> */}
         <Container fluid>
           <Row className='mt-3'>
             <h5 className='text-center'>Story</h5>

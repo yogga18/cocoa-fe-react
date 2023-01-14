@@ -3,10 +3,13 @@ import Kab2019 from './Kab2019';
 import Prov2019 from './Prov2019';
 import Story19 from './Story19';
 import map_2019 from '../../../assets/img/2019_map.png';
+import { Fragment } from 'react';
+import GoBack from '../../../Components/Button/GoBack';
 
 const index = () => {
   return (
-    <div>
+    <Fragment>
+      <GoBack />
       <h1 className='text-center'>
         Keadaan Komoditas Kakao di Indonesia pada tahun 2019
       </h1>
@@ -27,7 +30,7 @@ const index = () => {
       <Prov2019 />
       <Kab2019 />
       <Story19 />
-    </div>
+    </Fragment>
   );
 };
 

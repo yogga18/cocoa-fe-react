@@ -1,8 +1,63 @@
 import React, { Fragment } from 'react';
+import { useState } from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import elbow_18 from '../../../assets/img/2018/Elbow_2018.png';
+import LineChart from '../../../Components/Chart/LineChart';
+import dataIndonesia from '../../../Data/Indonesia/allover';
 
 const Story18 = () => {
+  const limitDataByYear2014to2019 = dataIndonesia.filter(
+    (item) => item.Year >= 2014 && item.Year <= 2018
+  );
+
+  const [lineChart] = useState({
+    labels: limitDataByYear2014to2019.map((item) => item.Year),
+    datasets: [
+      {
+        label: 'Luas_Areal',
+        data: dataIndonesia.map((item) => item.Luas_Areal),
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Produksi',
+        data: dataIndonesia.map((item) => item.Produksi),
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Perkebunan Rakyat',
+        data: dataIndonesia.map((item) => item.PR),
+        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+        borderColor: 'rgba(153, 102, 255, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Tanaman Belum Matang',
+        data: dataIndonesia.map((item) => item.TBM),
+        backgroundColor: '#f9bf40',
+        borderColor: '#ffdc41',
+        borderWidth: 1,
+      },
+      {
+        label: 'Tanaman Matang',
+        data: dataIndonesia.map((item) => item.TM),
+        backgroundColor: '#70f3ac',
+        borderColor: '#4aa78e',
+        borderWidth: 1,
+      },
+      {
+        label: 'Tanaman Rusak',
+        data: dataIndonesia.map((item) => item.TR),
+        backgroundColor: '#e91e63',
+        borderColor: '#ff204e',
+        borderWidth: 1,
+      },
+    ],
+  });
+
   return (
     <Fragment>
       <Container fluid className='my-5'>
@@ -85,6 +140,21 @@ const Story18 = () => {
                 Potensi Kurang Baik
               </span>
             </p>
+            <Col md='6'>
+              <LineChart
+                titleBar={'Grafik Komoditas Kakao'}
+                chartData={lineChart}
+              />
+            </Col>
+            <Col md='6'>
+              <p className='pt-5'>
+                Pada tahun 2018 komoditas kakao mengalami kenaikan yang cukup
+                signifikan hal inin disebabkan komposisi tanaman matang (TM)
+                meningkat dan tanaman rusak (TR) serta tanaman belum matang
+                (TBM) juga menurun hal ini lah yang menyebabkan produksi kakao
+                meningkat walaupun luas areal mengalami penurunan.
+              </p>
+            </Col>
           </Row>
         </Container>
       </Container>

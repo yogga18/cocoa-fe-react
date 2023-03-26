@@ -5,6 +5,8 @@ import Hero from '../../Components/Hero';
 import About from '../../Components/About';
 import Faq from '../../Components/Faq/Faq.js';
 import ScrollButton from '../../Components/Button/ScrollButton';
+import Sig from '../../Components/SIG';
+import Datasains from '../../Components/Datasains';
 
 const index = () => {
   return (
@@ -16,6 +18,8 @@ const index = () => {
     >
       <MetaTags>CCI - Landing Page</MetaTags>
       <Hero />
+      <Sig />
+      <Datasains />
       <About />
       <Faq />
       <Footer />

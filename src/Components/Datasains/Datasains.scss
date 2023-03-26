@@ -1,0 +1,18 @@
+.datasainns-wrapper {
+  .line {
+    border: 2px solid #267bbe;
+    border-radius: 2px;
+    margin: auto;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .image-datasains {
+    // center and responsive image
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
